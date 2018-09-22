@@ -2,9 +2,10 @@
 
 The game is very far from finished, most of the planed features aren't completed
 * Player system, controller, stats, ui,
+* Player Selection, animations, show stats, ui,
 * Aiming system, animations and ui,
 * Enemy AI, controllers and 3D models and animations
 * Better Levels
 * Inventory
 * UI
-* 
+
