@@ -8,6 +8,7 @@ public class playerSelect : MonoBehaviour {
     public GameObject player1;
     public GameObject player2;
     public GameObject player3;
+    
 
     // Use this for initialization
     void Start () {
@@ -42,5 +43,16 @@ public class playerSelect : MonoBehaviour {
         player3.SetActive(true);
 
     }
+    public void player1play()
+    {
 
+    }
+    public void player2play()
+    {
+
+    }
+    public void player3play()
+    {
+
+    }
 }
