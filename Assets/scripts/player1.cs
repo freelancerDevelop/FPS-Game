@@ -7,8 +7,13 @@ using UnityEngine.UI;
 public class player1 : MonoBehaviour {
     public float playerHealth;
     public float maxPlayerHealth;
+    public float restoreHealthValue;
+    public Text playerHealthText;
+
     public float playerEnergy;
     public float maxPlayerEnergy;
+    public float restoreEnergyValue;
+
     public Slider playerHealthSlider;
     public Slider playerEnergySlider;
 
@@ -20,6 +25,7 @@ public class player1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        playerHealthText.text = playerHealth.ToString("F1");
         playerHealthSlider.maxValue = maxPlayerHealth;
         playerHealthSlider.value = playerHealth;
 
@@ -42,6 +48,27 @@ public class player1 : MonoBehaviour {
         {
             playerEnergy += 10;
         }
+        if(playerHealth < maxPlayerHealth)
+        {
+            restoreHealthValue = maxPlayerHealth / maxPlayerHealth;
+            restoreEnergyValue = maxPlayerEnergy / maxPlayerEnergy;
+
+            restoreHealth();
+        }
+        if(playerHealth >= maxPlayerHealth)
+        {
+            playerHealth = maxPlayerHealth;
+        }
+        if(playerEnergy >= maxPlayerEnergy)
+        {
+            playerEnergy = maxPlayerEnergy;
+        }
+        Debug.Log("health is " + playerHealth);
+    }
+    void restoreHealth()
+    {
+        playerHealth += restoreHealthValue * Time.deltaTime;
+        playerEnergy += restoreEnergyValue * Time.deltaTime;
 
     }
 }
