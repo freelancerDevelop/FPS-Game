@@ -8,4 +8,4 @@ The game is very far from finished, most of the planed features aren't completed
 * Better Levels
 * Inventory
 * UI
-
+* Minimap
