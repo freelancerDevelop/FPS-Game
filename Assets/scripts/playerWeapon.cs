@@ -85,7 +85,6 @@ public class playerWeapon : MonoBehaviour {
     }
     void Ability1ResetUi()
     {
-        abilityQTimerText.text = abilityQText.ToString();
         abilityQImage.fillAmount = abilityQTimer / 10f;
     }
 }
