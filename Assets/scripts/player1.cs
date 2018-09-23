@@ -63,7 +63,6 @@ public class player1 : MonoBehaviour {
         {
             playerEnergy = maxPlayerEnergy;
         }
-        Debug.Log("health is " + playerHealth);
     }
     void restoreHealth()
     {
