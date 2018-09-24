@@ -3221,7 +3221,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 15.139108, y: 15.139108, z: 0}
+  Offset: {x: 15.239108, y: 15.239108, z: 0}
 --- !u!1 &214415260
 GameObject:
   m_ObjectHideFlags: 0
@@ -16627,12 +16627,12 @@ GameObject:
   - component: {fileID: 1097106153}
   - component: {fileID: 1097106152}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: inventoryCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1097106152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28367,7 +28367,7 @@ MonoBehaviour:
   FogTransitionSize: 5
   MaxLightDistance: 128
   AboveFogPercent: 0.1
-  Offset: {x: 15.139108, y: 15.139108, z: 0}
+  Offset: {x: 15.239108, y: 15.239108, z: 0}
 --- !u!1001 &1889264451
 Prefab:
   m_ObjectHideFlags: 0
