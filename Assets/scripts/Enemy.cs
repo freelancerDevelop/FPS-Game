@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
 
     public float health = 50f;
     public Slider healthSlider;
+    public GameObject enemyRagdoll;
 	// Use this for initialization
 	void Start () {
         healthSlider.maxValue = health;
@@ -27,6 +28,8 @@ public class Enemy : MonoBehaviour {
     }
     void Die()
     {
+        Instantiate(enemyRagdoll, transform.position, transform.rotation);
+
         Destroy(gameObject);
     }
 }
