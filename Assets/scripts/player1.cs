@@ -17,6 +17,13 @@ public class player1 : MonoBehaviour {
     public Slider playerHealthSlider;
     public Slider playerEnergySlider;
 
+    public int playerLevel;
+    public int currentXp;
+    public int startXp;
+    public int requiredXpLevelUp;
+
+    public Slider levelSlider;
+    public Text currentXpText;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +32,23 @@ public class player1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        levelSlider.value = currentXp;
+        levelSlider.maxValue = requiredXpLevelUp;
+        currentXpText.text = currentXp.ToString();
+
+
+        if (currentXp >= requiredXpLevelUp)
+        {
+            playerLevel++;
+            currentXp = startXp;
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            currentXp += 10;
+        }
+
         playerHealthText.text = playerHealth.ToString("F1");
         playerHealthSlider.maxValue = maxPlayerHealth;
         playerHealthSlider.value = playerHealth;
