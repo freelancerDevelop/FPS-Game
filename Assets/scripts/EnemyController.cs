@@ -18,12 +18,13 @@ public class EnemyController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         anim.SetFloat("speed", controlSpeed);
-        controlSpeed = 0f;
+       // controlSpeed = 0f;
         agent.enabled = true;
 
         float distance = Vector3.Distance(target.position, transform.position);
         if(distance <= lookRadius)
         {
+            agent.enabled = true;
             controlSpeed = 1f;
 
             agent.SetDestination(target.position);
@@ -33,6 +34,10 @@ public class EnemyController : MonoBehaviour {
                 controlSpeed = 2f;
                 agent.enabled = false;
             }
+        } else if (distance >= lookRadius)
+        {
+            controlSpeed = 0f;
+            agent.enabled = false;
         }
 
     }
