@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
 
     public float health = 50f;
     public Slider healthSlider;
+    public GameObject spawnRagdoll;
     public GameObject enemyRagdoll;
 	// Use this for initialization
 	void Start () {
@@ -28,7 +29,7 @@ public class Enemy : MonoBehaviour {
     }
     void Die()
     {
-        Instantiate(enemyRagdoll, transform.position, transform.rotation);
+        Instantiate(enemyRagdoll, spawnRagdoll.transform.position, spawnRagdoll.transform.rotation);
 
         Destroy(gameObject);
     }

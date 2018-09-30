@@ -13,6 +13,9 @@ public class playerWeapon : MonoBehaviour {
     public float fireRate = 15f;
     public float impactForce = 30f;
 
+    public ParticleSystem muzzleFlash;
+
+
     public Image abilityQImage;
     public Text abilityQTimerText;
     public float abilityQTimer;
@@ -49,6 +52,8 @@ public class playerWeapon : MonoBehaviour {
     }
     void Shoot()
     {
+        muzzleFlash.Play();
+
         RaycastHit hit;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {

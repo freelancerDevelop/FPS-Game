@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 public class player1 : MonoBehaviour {
-    public static float playerHealth;
+    public static float playerHealth = 100;
     public float maxPlayerHealth;
     public float restoreHealthValue;
     public Text playerHealthText;
