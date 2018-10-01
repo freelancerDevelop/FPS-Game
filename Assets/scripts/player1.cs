@@ -22,9 +22,20 @@ public class player1 : MonoBehaviour {
     public int startXp;
     public int requiredXpLevelUp;
 
+    public int player1Gold;
+
     public Text levelText;
     public Slider levelSlider;
     public Text currentXpText;
+
+    public Slider levelSliderUi;
+    public Text levelTextUi;
+
+    public Text player1GoldText;
+
+    public Text player1GoldTextUi;
+
+
 
     // Use this for initialization
     void Start () {
@@ -36,8 +47,18 @@ public class player1 : MonoBehaviour {
 
         levelSlider.value = currentXp;
         levelSlider.maxValue = requiredXpLevelUp;
+
+        levelSliderUi.value = currentXp;
+        levelSliderUi.maxValue = requiredXpLevelUp;
+
         currentXpText.text = currentXp.ToString();
         levelText.text = playerLevel.ToString();
+        levelTextUi.text = playerLevel.ToString();
+
+        player1GoldText.text = player1Gold.ToString();
+
+        player1GoldTextUi.text = player1Gold.ToString();
+
 
 
 
