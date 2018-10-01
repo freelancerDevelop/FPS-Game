@@ -22,6 +22,7 @@ public class player1 : MonoBehaviour {
     public int startXp;
     public int requiredXpLevelUp;
 
+    public Text levelText;
     public Slider levelSlider;
     public Text currentXpText;
 
@@ -36,6 +37,8 @@ public class player1 : MonoBehaviour {
         levelSlider.value = currentXp;
         levelSlider.maxValue = requiredXpLevelUp;
         currentXpText.text = currentXp.ToString();
+        levelText.text = playerLevel.ToString();
+
 
 
         if (currentXp >= requiredXpLevelUp)

@@ -31,8 +31,9 @@ public class EnemyController : MonoBehaviour {
             if(distance <= agent.stoppingDistance)
             {
                 FaceTarget();
-                controlSpeed = 2f;
+                //controlSpeed = 2f;
                 agent.enabled = false;
+                anim.Play("attack");
             }
         } else if (distance >= lookRadius)
         {
