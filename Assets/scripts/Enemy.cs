@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 
@@ -10,6 +11,7 @@ public class Enemy : MonoBehaviour {
     public Slider healthSlider;
     public GameObject spawnRagdoll;
     public GameObject enemyRagdoll;
+    public UnityEvent OnDied;
 	// Use this for initialization
 	void Start () {
         healthSlider.maxValue = health;
@@ -32,5 +34,6 @@ public class Enemy : MonoBehaviour {
         Instantiate(enemyRagdoll, spawnRagdoll.transform.position, spawnRagdoll.transform.rotation);
 
         Destroy(gameObject);
+        OnDied.Invoke();
     }
 }

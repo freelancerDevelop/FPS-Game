@@ -112,6 +112,14 @@ public class player1 : MonoBehaviour {
             playerEnergy = maxPlayerEnergy;
         }
     }
+    public void givePlayerGold()
+    {
+        player1Gold += 50;
+    }
+    public void givePlayerXp()
+    {
+        currentXp += 50;
+    }
     void restoreHealth()
     {
         playerHealth += restoreHealthValue * Time.deltaTime;
