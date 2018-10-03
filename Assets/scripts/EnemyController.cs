@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour {
     NavMeshAgent agent;
     public Animator anim;
     public float controlSpeed;
-    public float enemyDamage;
+    public float enemyDamage = 30f;
 
     public float nextAttackTimer;
     public float nextAttackTimerReset;
@@ -48,7 +48,10 @@ public class EnemyController : MonoBehaviour {
                 {
                     attack();
                 }
-                
+                else if(distance <= agent.stoppingDistance || nextAttackTimer >= 0f)
+                {
+                    controlSpeed = 0f;
+                }
             }
         } else if (distance >= lookRadius)
         {
