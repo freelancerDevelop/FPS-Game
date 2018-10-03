@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class changeScene : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -17,6 +17,10 @@ public class changeScene : MonoBehaviour {
     public void ChangeSceneLevel1()
     {
         SceneManager.LoadSceneAsync("map1");
+    }
+    public void ChangeSceneStartMenu()
+    {
+        SceneManager.LoadSceneAsync("startMenu");
     }
     public void ExitGame()
     {
