@@ -10,8 +10,13 @@ public class EnemyController : MonoBehaviour {
     NavMeshAgent agent;
     public Animator anim;
     public float controlSpeed;
-	// Use this for initialization
-	void Start () {
+    public float enemyDamage;
+
+    public float nextAttackTimer;
+    public float nextAttackTimerReset;
+
+    // Use this for initialization
+    void Start () {
         agent = GetComponent<NavMeshAgent>();
 	}
 	
@@ -20,6 +25,12 @@ public class EnemyController : MonoBehaviour {
         anim.SetFloat("speed", controlSpeed);
        // controlSpeed = 0f;
         agent.enabled = true;
+
+        nextAttackTimer -= Time.deltaTime;
+        if(nextAttackTimer <= 0f)
+        {
+            nextAttackTimer = 0f;
+        }
 
         float distance = Vector3.Distance(target.position, transform.position);
         if(distance <= lookRadius)
@@ -33,7 +44,11 @@ public class EnemyController : MonoBehaviour {
                 FaceTarget();
                 //controlSpeed = 2f;
                 agent.enabled = false;
-                anim.Play("attack");
+                if(nextAttackTimer == 0f)
+                {
+                    attack();
+                }
+                
             }
         } else if (distance >= lookRadius)
         {
@@ -52,5 +67,12 @@ public class EnemyController : MonoBehaviour {
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position, lookRadius);
+    }
+    void attack()
+    {
+        anim.Play("attack");
+        player1.playerHealth -= enemyDamage;
+        nextAttackTimer = nextAttackTimerReset;
+
     }
 }
