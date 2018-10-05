@@ -25,7 +25,7 @@ public class player1 : MonoBehaviour {
     public int player1Gold;
 
     public Text levelText;
-    public Slider levelSlider;
+    public Image levelSlider;
     public Text currentXpText;
 
     public Slider levelSliderUi;
@@ -34,6 +34,7 @@ public class player1 : MonoBehaviour {
     public Text player1GoldText;
 
     public Text player1GoldTextUi;
+    public float levelSliderImage;
 
 
 
@@ -45,9 +46,8 @@ public class player1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        levelSlider.value = currentXp;
-        levelSlider.maxValue = requiredXpLevelUp;
-
+        levelSlider.fillAmount = currentXp / 100f;
+        levelSliderImage = currentXp / 100f;
         levelSliderUi.value = currentXp;
         levelSliderUi.maxValue = requiredXpLevelUp;
 
