@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
     public GameObject spawnRagdoll;
     public GameObject enemyRagdoll;
     public UnityEvent OnDied;
+    public GameObject getDamage;
 	// Use this for initialization
 	void Start () {
         healthSlider.maxValue = health;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour {
 	}
     public void TakeDamage(float amoumt)
     {
+       getDamage.SetActive(true);
         health -= amoumt;
         if(health <= 0f)
         {
