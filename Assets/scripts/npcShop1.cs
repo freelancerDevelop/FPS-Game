@@ -6,6 +6,7 @@ public class npcShop1 : MonoBehaviour {
 
     public GameObject ui1;
     public GameObject ui2;
+    
 
     // Use this for initialization
     void Start () {

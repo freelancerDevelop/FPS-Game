@@ -14,7 +14,6 @@ public class playerInventory : MonoBehaviour {
 
     public int weaponTypeEquip;
 
-
     public int[] weaponEquipType;
     
 
@@ -25,6 +24,7 @@ public class playerInventory : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
 		switch(weaponEquipType[0])
         {
             case 1:
@@ -109,6 +109,10 @@ public class playerInventory : MonoBehaviour {
                 break;
         }
 	}
+    public void equipWeaponType1Weapon1()
+    {
+        weaponEquipType[0] = 2;
+    }
     
     
 }
