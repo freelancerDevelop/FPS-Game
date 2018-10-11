@@ -14,6 +14,8 @@ public class playerWeapon : MonoBehaviour {
     public float impactForce = 30f;
 
     public ParticleSystem muzzleFlash;
+    public ParticleSystem[] muzzleFlashQAbility;
+
 
 
     public Image abilityQImage;
@@ -71,6 +73,10 @@ public class playerWeapon : MonoBehaviour {
     }
     void Ability1()
     {
+        muzzleFlashQAbility[0].Play();
+        muzzleFlashQAbility[1].Play();
+
+
         abilityQTimer = abilityQTimerReset;
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
