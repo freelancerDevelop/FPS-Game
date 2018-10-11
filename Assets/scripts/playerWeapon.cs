@@ -75,6 +75,8 @@ public class playerWeapon : MonoBehaviour {
     {
         muzzleFlashQAbility[0].Play();
         muzzleFlashQAbility[1].Play();
+        muzzleFlashQAbility[2].Play();
+
 
 
         abilityQTimer = abilityQTimerReset;
