@@ -74,8 +74,6 @@ public class playerWeapon : MonoBehaviour {
     void Ability1()
     {
         muzzleFlashQAbility[0].Play();
-        muzzleFlashQAbility[1].Play();
-        muzzleFlashQAbility[2].Play();
 
 
 
