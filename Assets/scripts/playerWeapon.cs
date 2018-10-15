@@ -22,6 +22,7 @@ public class playerWeapon : MonoBehaviour {
     public Text abilityQTimerText;
     public float abilityQTimer;
     public float abilityQTimerReset;
+    public float requiredEnergyQAbility;
 
 
     public Camera fpsCam;
@@ -43,6 +44,7 @@ public class playerWeapon : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Q) && abilityQTimer == 10f)
         {
+            if(player1.playerEnergy > requiredEnergyQAbility)
             Ability1();
         }
         abilityQTimer += Time.deltaTime;
@@ -74,7 +76,7 @@ public class playerWeapon : MonoBehaviour {
     void Ability1()
     {
         muzzleFlashQAbility[0].Play();
-
+        player1.playerEnergy -= requiredEnergyQAbility;
 
 
         abilityQTimer = abilityQTimerReset;

@@ -10,7 +10,7 @@ public class player1 : MonoBehaviour {
     public float restoreHealthValue;
     public Text playerHealthText;
 
-    public float playerEnergy;
+    public static float playerEnergy = 100;
     public float maxPlayerEnergy;
     public float restoreEnergyValue;
 
@@ -99,11 +99,15 @@ public class player1 : MonoBehaviour {
         if(playerHealth < maxPlayerHealth)
         {
             restoreHealthValue = maxPlayerHealth / maxPlayerHealth;
-            restoreEnergyValue = maxPlayerEnergy / maxPlayerEnergy;
 
             restoreHealth();
         }
-        if(playerHealth >= maxPlayerHealth)
+        if(playerEnergy < maxPlayerEnergy)
+        {
+            restoreEnergyValue = maxPlayerEnergy / maxPlayerEnergy;
+            restoreEnergy();
+        }
+        if (playerHealth >= maxPlayerHealth)
         {
             playerHealth = maxPlayerHealth;
         }
@@ -123,7 +127,9 @@ public class player1 : MonoBehaviour {
     void restoreHealth()
     {
         playerHealth += restoreHealthValue * Time.deltaTime;
+    }
+    void restoreEnergy()
+    {
         playerEnergy += restoreEnergyValue * Time.deltaTime;
-
     }
 }
