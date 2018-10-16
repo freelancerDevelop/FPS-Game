@@ -8,6 +8,8 @@ public class playerWeapon : MonoBehaviour {
 
     public float damage = 10f;
     public float abilityQdamage = 100f;
+    public float ability2damage = 100f;
+
 
     public float range = 100f;
     public float fireRate = 15f;
@@ -23,6 +25,12 @@ public class playerWeapon : MonoBehaviour {
     public float abilityQTimer;
     public float abilityQTimerReset;
     public float requiredEnergyQAbility;
+
+    public GameObject ability2;
+    public Image ability2Image;
+    public float ability2Timer;
+    public float ability2TimerReset;
+    public float requiredEnergy2Ability;
 
 
     public Camera fpsCam;
@@ -48,11 +56,22 @@ public class playerWeapon : MonoBehaviour {
             Ability1();
         }
         abilityQTimer += Time.deltaTime;
+        ability2Timer += Time.deltaTime;
+
 
         if (abilityQTimer > 10f)
             abilityQTimer = 10f;
 
-        Ability1ResetUi();
+        if (ability2Timer > 10f)
+            ability2Timer = 10f;
+
+        AbilityResetUi();
+
+        if (Input.GetKeyDown(KeyCode.R) && ability2Timer == 10f)
+        {
+            if (player1.playerEnergy > requiredEnergy2Ability)
+                Ability2();
+        }
     }
     void Shoot()
     {
@@ -96,9 +115,30 @@ public class playerWeapon : MonoBehaviour {
         }
 
     }
-    void Ability1ResetUi()
+    void Ability2()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            ability2Timer = ability2TimerReset;
+            Debug.Log(hit.transform.name);
+            Enemy enemy = hit.transform.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(abilityQdamage);
+                Instantiate(ability2, enemy.transform.position, enemy.transform.rotation);
+            }
+            if (hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(-hit.normal * impactForce);
+            }
+        }
+    }
+    void AbilityResetUi()
     {
         abilityQImage.fillAmount = abilityQTimer / 10f;
+        ability2Image.fillAmount = ability2Timer / 10f;
+
     }
 }
 
