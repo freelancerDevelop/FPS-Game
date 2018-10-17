@@ -140,6 +140,7 @@ public class playerWeapon : MonoBehaviour {
             Enemy enemy = hit.transform.GetComponent<Enemy>();
             if (enemy != null)
             {
+                player1.playerEnergy -= requiredEnergy2Ability;
                 ability2Timer = ability2TimerReset;
                 enemy.TakeDamage(abilityQdamage);
                 Instantiate(ability2, enemy.transform.position, enemy.transform.rotation);
