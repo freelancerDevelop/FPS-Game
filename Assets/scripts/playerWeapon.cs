@@ -32,6 +32,12 @@ public class playerWeapon : MonoBehaviour {
     public float ability2TimerReset;
     public float requiredEnergy2Ability;
 
+    public float playerHealthHeal;
+    public ParticleSystem[] ability3;
+    public Image ability3Image;
+    public float ability3Timer;
+    public float ability3TimerReset;
+    public float requiredEnergy3Ability;
 
     public Camera fpsCam;
     float nextTimeToFire = 0f;
@@ -57,6 +63,8 @@ public class playerWeapon : MonoBehaviour {
         }
         abilityQTimer += Time.deltaTime;
         ability2Timer += Time.deltaTime;
+        ability3Timer += Time.deltaTime;
+
 
 
         if (abilityQTimer > 10f)
@@ -65,12 +73,20 @@ public class playerWeapon : MonoBehaviour {
         if (ability2Timer > 10f)
             ability2Timer = 10f;
 
+        if (ability3Timer > 10f)
+            ability3Timer = 10f;
+
         AbilityResetUi();
 
         if (Input.GetKeyDown(KeyCode.R) && ability2Timer == 10f)
         {
             if (player1.playerEnergy > requiredEnergy2Ability)
                 Ability2();
+        }
+        if (Input.GetKeyDown(KeyCode.E) && ability3Timer == 10f)
+        {
+            if (player1.playerEnergy > requiredEnergy3Ability)
+                Ability3();
         }
     }
     void Shoot()
@@ -120,11 +136,11 @@ public class playerWeapon : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            ability2Timer = ability2TimerReset;
             Debug.Log(hit.transform.name);
             Enemy enemy = hit.transform.GetComponent<Enemy>();
             if (enemy != null)
             {
+                ability2Timer = ability2TimerReset;
                 enemy.TakeDamage(abilityQdamage);
                 Instantiate(ability2, enemy.transform.position, enemy.transform.rotation);
             }
@@ -134,10 +150,24 @@ public class playerWeapon : MonoBehaviour {
             }
         }
     }
+    void Ability3()
+    {
+        player1.playerHealth += 30;
+        ability3[0].Play();
+        ability3[1].Play();
+        ability3[2].Play();
+        ability3Timer = ability3TimerReset;
+        player1.playerEnergy -= requiredEnergy3Ability;
+
+
+
+    }
     void AbilityResetUi()
     {
         abilityQImage.fillAmount = abilityQTimer / 10f;
         ability2Image.fillAmount = ability2Timer / 10f;
+        ability3Image.fillAmount = ability3Timer / 10f;
+
 
     }
 }
