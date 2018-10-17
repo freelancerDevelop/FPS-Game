@@ -22,7 +22,7 @@ public class player1 : MonoBehaviour {
     public int startXp;
     public int requiredXpLevelUp;
 
-    public int player1Gold;
+    public static int player1Gold = 0;
 
     public Text levelText;
     public Image levelSlider;
