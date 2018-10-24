@@ -22,6 +22,10 @@ public class changeScene : MonoBehaviour {
     {
         SceneManager.LoadSceneAsync("startMenu");
     }
+    public void ChangeSceneStartLevel2()
+    {
+        SceneManager.LoadSceneAsync("map3");
+    }
     public void ExitGame()
     {
         Application.Quit();
