@@ -39,6 +39,10 @@ public class playerWeapon : MonoBehaviour {
     public float ability3TimerReset;
     public float requiredEnergy3Ability;
 
+    public GameObject ability1;
+    public GameObject weapon1icon;
+
+
     public Camera fpsCam;
     float nextTimeToFire = 0f;
 
@@ -46,10 +50,22 @@ public class playerWeapon : MonoBehaviour {
 	void Start () {
 
 	}
+    private void OnEnable()
+    {
+        ability1.SetActive(true);
+        weapon1icon.SetActive(true);
 
-	
-	// Update is called once per frame
-	void Update () {
+    }
+    private void OnDisable()
+    {
+        ability1.SetActive(false);
+        weapon1icon.SetActive(false);
+
+    }
+
+
+    // Update is called once per frame
+    void Update () {
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;

@@ -13,6 +13,7 @@ public class player1 : MonoBehaviour {
     public static float playerEnergy = 100;
     public float maxPlayerEnergy;
     public float restoreEnergyValue;
+    public Text playerEnergyText;
 
     public Slider playerHealthSlider;
     public Slider playerEnergySlider;
@@ -73,7 +74,9 @@ public class player1 : MonoBehaviour {
             currentXp += 10;
         }
 
-        playerHealthText.text = playerHealth.ToString("F1");
+        playerHealthText.text = playerHealth.ToString("F0");
+        playerEnergyText.text = playerEnergy.ToString("F0");
+
         playerHealthSlider.maxValue = maxPlayerHealth;
         playerHealthSlider.value = playerHealth;
 
