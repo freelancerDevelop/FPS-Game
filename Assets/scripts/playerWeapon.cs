@@ -9,6 +9,10 @@ public class playerWeapon : MonoBehaviour {
     public float damage = 10f;
     public float abilityQdamage = 100f;
     public float ability2damage = 100f;
+    int currentBullets;
+    public int maxBullets;
+    public Text currentBulletsText;
+    public static bool isReloading = false;
 
 
     public float range = 100f;
@@ -48,7 +52,7 @@ public class playerWeapon : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        currentBullets = maxBullets;
 	}
     private void OnEnable()
     {
@@ -66,7 +70,17 @@ public class playerWeapon : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+
+        currentBulletsText.text = currentBullets.ToString();
+        if(currentBullets < 0)
+        {
+            currentBullets = 0;
+        }
+        if(Input.GetKeyUp(KeyCode.R))
+        {
+            weaponReaload();
+        }
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentBullets > 0 && isReloading == false)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
@@ -94,7 +108,7 @@ public class playerWeapon : MonoBehaviour {
 
         AbilityResetUi();
 
-        if (Input.GetKeyDown(KeyCode.R) && ability2Timer == 10f)
+        if (Input.GetKeyDown(KeyCode.G) && ability2Timer == 10f)
         {
             if (player1.playerEnergy > requiredEnergy2Ability)
                 Ability2();
@@ -108,7 +122,7 @@ public class playerWeapon : MonoBehaviour {
     void Shoot()
     {
         muzzleFlash.Play();
-
+        currentBullets--;
         RaycastHit hit;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
@@ -186,6 +200,10 @@ public class playerWeapon : MonoBehaviour {
         ability3Image.fillAmount = ability3Timer / 10f;
 
 
+    }
+    public void weaponReaload()
+    {
+        currentBullets = maxBullets;
     }
 }
 

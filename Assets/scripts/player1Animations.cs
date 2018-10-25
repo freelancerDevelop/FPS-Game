@@ -9,6 +9,8 @@ public class player1Animations : MonoBehaviour
     public Transform aimPosition;
     public Transform standardPosition;
     public Transform currentPosition;
+    public float timerAnimation;
+    public float timerAnimationReset;
 
 
 
@@ -84,7 +86,25 @@ public class player1Animations : MonoBehaviour
             controlSpeed = 0;
 
         }
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            anim.SetTrigger("Reloading");
+            timerAnimation = timerAnimationReset;
+        }
 
+        timerAnimation -= Time.deltaTime;
+
+        if(timerAnimation > 0)
+        {
+            playerWeapon.isReloading = true;
+        }
+        if (timerAnimation < 0f)
+        {
+            timerAnimation = 0f;
+            playerWeapon.isReloading = false;
+
+        }
+        Debug.Log("timerAnimation " + timerAnimation);
     }
     public void playerAim()
     {
@@ -95,4 +115,5 @@ public class player1Animations : MonoBehaviour
         transform.localPosition = standardPosition.localPosition;
 
     }
+    
 }
