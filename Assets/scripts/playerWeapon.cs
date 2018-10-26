@@ -12,6 +12,8 @@ public class playerWeapon : MonoBehaviour {
     int currentBullets;
     public int maxBullets;
     public Text currentBulletsText;
+    public Text maxBulletsText;
+
     public static bool isReloading = false;
 
 
@@ -72,7 +74,9 @@ public class playerWeapon : MonoBehaviour {
     void Update () {
 
         currentBulletsText.text = currentBullets.ToString();
-        if(currentBullets < 0)
+        maxBulletsText.text = maxBullets.ToString();
+
+        if (currentBullets < 0)
         {
             currentBullets = 0;
         }

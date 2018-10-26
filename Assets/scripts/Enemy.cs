@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour {
     public Slider healthSlider;
     public GameObject spawnRagdoll;
     public GameObject enemyRagdoll;
+    public GameObject spawnPrefab;
     public UnityEvent OnDied;
     public GameObject[] getDamage;
 	// Use this for initialization
@@ -35,6 +36,8 @@ public class Enemy : MonoBehaviour {
     void Die()
     {
         Instantiate(enemyRagdoll, spawnRagdoll.transform.position, spawnRagdoll.transform.rotation);
+        Instantiate(spawnPrefab, gameObject.transform.position, spawnPrefab.transform.rotation);
+
 
         Destroy(gameObject);
         OnDied.Invoke();
