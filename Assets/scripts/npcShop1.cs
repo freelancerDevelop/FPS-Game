@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class npcShop1 : MonoBehaviour {
 
@@ -37,6 +38,7 @@ public class npcShop1 : MonoBehaviour {
         if(other.tag == "Player")
         {
             ui1.SetActive(true);
+            FirstPersonController.canOpenShop = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -46,6 +48,8 @@ public class npcShop1 : MonoBehaviour {
             ui1.SetActive(false);
             ui2.SetActive(false);
             closeVendor();
+            FirstPersonController.canOpenShop = false;
+
         }
     }
 }

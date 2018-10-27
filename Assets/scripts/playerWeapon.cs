@@ -47,6 +47,7 @@ public class playerWeapon : MonoBehaviour {
 
     public GameObject ability1;
     public GameObject weapon1icon;
+    public GameObject lowAmmo;
 
 
     public Camera fpsCam;
@@ -122,6 +123,14 @@ public class playerWeapon : MonoBehaviour {
             if (player1.playerEnergy > requiredEnergy3Ability)
                 Ability3();
         }
+        if (currentBullets < maxBullets / 6)
+        {
+            lowAmmo.SetActive(true);
+        } else
+        {
+            lowAmmo.SetActive(false);
+        }
+
     }
     void Shoot()
     {
