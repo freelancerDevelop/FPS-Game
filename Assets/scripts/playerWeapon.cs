@@ -141,11 +141,21 @@ public class playerWeapon : MonoBehaviour {
         {
             Debug.Log(hit.transform.name);
             Enemy enemy = hit.transform.GetComponent<Enemy>();
-                if(enemy != null)
+            chestDestroy chestdestroy = hit.transform.GetComponent<chestDestroy>();
+
+            if (enemy != null)
             {
                 enemy.TakeDamage(damage);
             }
                 if(hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(-hit.normal * impactForce);
+            }
+            if (chestdestroy != null)
+            {
+                chestdestroy.TakeDamage(damage);
+            }
+            if (hit.rigidbody != null)
             {
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
