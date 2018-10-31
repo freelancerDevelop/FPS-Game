@@ -45,7 +45,7 @@ public class playerWeapon : MonoBehaviour {
     public float ability3TimerReset;
     public float requiredEnergy3Ability;
 
-    public GameObject ability1;
+   // public GameObject ability1;
     public GameObject weapon1icon;
     public GameObject lowAmmo;
 
@@ -59,13 +59,13 @@ public class playerWeapon : MonoBehaviour {
 	}
     private void OnEnable()
     {
-        ability1.SetActive(true);
+       // ability1.SetActive(true);
         weapon1icon.SetActive(true);
 
     }
     private void OnDisable()
     {
-        ability1.SetActive(false);
+       // ability1.SetActive(false);
         weapon1icon.SetActive(false);
 
     }

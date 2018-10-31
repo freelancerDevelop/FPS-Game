@@ -15,6 +15,8 @@ public class playerInventory : MonoBehaviour {
     public int weaponTypeEquip;
 
     public int[] weaponEquipType;
+
+    public GameObject ui1;
     
 
     // Use this for initialization
@@ -24,8 +26,22 @@ public class playerInventory : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-		switch(weaponEquipType[0])
+        if (Input.GetKeyUp(KeyCode.Alpha1))
+        {
+            weaponTypeEquip = 1;
+            ui1.SetActive(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.Alpha2))
+        {
+            weaponTypeEquip = 2;
+            ui1.SetActive(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            weaponTypeEquip = 3;
+            ui1.SetActive(false);
+        }
+        switch (weaponEquipType[0])
         {
             case 1:
                 weaponType1[0].SetActive(true);
