@@ -127,8 +127,16 @@ public class playerInventory : MonoBehaviour {
 	}
     public void equipWeaponType1Weapon1()
     {
+        weaponEquipType[0] = 1;
+    }
+    public void equipWeaponType1Weapon2()
+    {
         weaponEquipType[0] = 2;
     }
-    
-    
+    public void equipWeaponType1Weapon3()
+    {
+        weaponEquipType[0] = 3;
+    }
+
+
 }
