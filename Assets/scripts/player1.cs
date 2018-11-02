@@ -37,6 +37,8 @@ public class player1 : MonoBehaviour {
     public Text player1GoldTextUi;
     public float levelSliderImage;
 
+    public Transform restartLevelTransform;
+
 
 
     // Use this for initialization
@@ -46,6 +48,11 @@ public class player1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(playerHealth < 0f)
+        {
+            restartLevel();
+        }
 
         levelSlider.fillAmount = currentXp / 100f;
         levelSliderImage = currentXp / 100f;
@@ -134,5 +141,12 @@ public class player1 : MonoBehaviour {
     void restoreEnergy()
     {
         playerEnergy += restoreEnergyValue * Time.deltaTime;
+    }
+    public void restartLevel()
+    {
+        gameObject.transform.position = restartLevelTransform.transform.position;
+        playerHealth = maxPlayerHealth;
+        playerEnergy = maxPlayerEnergy;
+
     }
 }
