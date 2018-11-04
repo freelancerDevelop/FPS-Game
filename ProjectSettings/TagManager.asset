@@ -10,6 +10,7 @@ TagManager:
   - BulletSpawn
   - LevelPart
   - Dummie
+  - cube1
   layers:
   - Default
   - TransparentFX
