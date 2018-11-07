@@ -8,6 +8,9 @@ public class player2inventory : MonoBehaviour {
     public GameObject gravityGunUi;
     public bool hasGravityGun;
     public int currentEquipedItem;
+    public GameObject portalGun;
+    public GameObject portalGunUi;
+    public bool hasPortalGun;
 
     // Use this for initialization
     void Start () {
@@ -26,5 +29,35 @@ public class player2inventory : MonoBehaviour {
             gravityGun.SetActive(false);
             gravityGunUi.SetActive(false);
         }
+
+        if (hasPortalGun && currentEquipedItem == 3)
+        {
+            portalGun.SetActive(true);
+            portalGunUi.SetActive(true);
+
+        }
+        else
+        {
+            portalGun.SetActive(false);
+            portalGunUi.SetActive(false);
+        }
+        
+        if (Input.GetKeyUp(KeyCode.Alpha2))
+        {
+            currentEquipedItem = 2;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            currentEquipedItem = 3;
+        }
+    }
+    public void equipGravityGun()
+    {
+        hasGravityGun = true;
+    }
+    public void equipPortalGun()
+    {
+        hasPortalGun = true;
     }
 }

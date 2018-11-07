@@ -6,6 +6,7 @@ public class level1 : MonoBehaviour {
 
     public GameObject laser;
     public bool cubeisOn;
+    public GameObject removeDoor;
     
 	// Use this for initialization
 	void Start () {
@@ -17,9 +18,12 @@ public class level1 : MonoBehaviour {
 		if (cubeisOn)
         {
             laser.SetActive(false);
-        } else
+            removeDoor.SetActive(false);
+        }
+        else
         {
             laser.SetActive(true);
+            removeDoor.SetActive(true);
         }
     }
     private void OnTriggerEnter(Collider other)

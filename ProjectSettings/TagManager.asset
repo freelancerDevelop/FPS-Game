@@ -11,6 +11,8 @@ TagManager:
   - LevelPart
   - Dummie
   - cube1
+  - laser1
+  - interactable1
   layers:
   - Default
   - TransparentFX
