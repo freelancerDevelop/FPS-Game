@@ -23,5 +23,12 @@ public class portal1 : MonoBehaviour {
             player.transform.localRotation = otherPortal.transform.localRotation;
 
         }
+
+        if (other.tag == "cube1")
+        {
+            other.transform.position = otherPortal.transform.position;
+            other.transform.localRotation = otherPortal.transform.localRotation;
+
+        }
     }
 }
