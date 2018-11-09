@@ -11,6 +11,9 @@ public class player2inventory : MonoBehaviour {
     public GameObject portalGun;
     public GameObject portalGunUi;
     public bool hasPortalGun;
+    public GameObject moveGun;
+    public GameObject moveGunUi;
+    public bool hasMoveGun;
 
     // Use this for initialization
     void Start () {
@@ -19,7 +22,7 @@ public class player2inventory : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (hasGravityGun && currentEquipedItem == 2)
+		if (hasGravityGun && currentEquipedItem == 1)
         {
             gravityGun.SetActive(true);
             gravityGunUi.SetActive(true);
@@ -30,7 +33,7 @@ public class player2inventory : MonoBehaviour {
             gravityGunUi.SetActive(false);
         }
 
-        if (hasPortalGun && currentEquipedItem == 3)
+        if (hasPortalGun && currentEquipedItem == 2)
         {
             portalGun.SetActive(true);
             portalGunUi.SetActive(true);
@@ -41,13 +44,30 @@ public class player2inventory : MonoBehaviour {
             portalGun.SetActive(false);
             portalGunUi.SetActive(false);
         }
-        
+
+        if (hasMoveGun && currentEquipedItem == 3)
+        {
+            moveGun.SetActive(true);
+            moveGunUi.SetActive(true);
+
+        }
+        else
+        {
+            moveGun.SetActive(false);
+            moveGunUi.SetActive(false);
+        }
+
         if (Input.GetKeyUp(KeyCode.Alpha2))
+        {
+            currentEquipedItem = 1;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha3))
         {
             currentEquipedItem = 2;
         }
 
-        if (Input.GetKeyUp(KeyCode.Alpha3))
+        if (Input.GetKeyUp(KeyCode.R))
         {
             currentEquipedItem = 3;
         }
