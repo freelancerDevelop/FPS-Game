@@ -11,6 +11,10 @@ public class player2completion : MonoBehaviour {
     public static int currentXp = 0;
     public static int maxXp = 100;
 
+    public static int currentCollectibles = 0;
+    public int maxCollectibles;
+
+
 
     public Slider completeSlider;
 	// Use this for initialization
