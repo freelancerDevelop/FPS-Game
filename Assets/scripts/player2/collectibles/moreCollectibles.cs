@@ -7,6 +7,7 @@ public class moreCollectibles : MonoBehaviour {
     public int addXp;
     public int completitionAdd;
     public GameObject currentXpSlider;
+    public GameObject Particleeffect;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +26,8 @@ public class moreCollectibles : MonoBehaviour {
             player2completion.currentXp += addXp;
             player2completion.currentComplete += completitionAdd;
             currentXpSlider.SetActive(true);
+            Instantiate(Particleeffect, transform.position, Particleeffect.transform.rotation);
+            Destroy(gameObject);
 
         }
     }

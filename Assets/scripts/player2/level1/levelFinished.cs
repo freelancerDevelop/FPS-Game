@@ -5,6 +5,8 @@ using UnityEngine;
 public class levelFinished : MonoBehaviour {
 
     public GameObject ui;
+    public GameObject currentSliderUi;
+
     public int addComplete;
     public int addXp;
 
@@ -25,6 +27,8 @@ public class levelFinished : MonoBehaviour {
             player2completion.currentXp += addXp;
 
             ui.SetActive(true);
+            currentSliderUi.SetActive(true);
+
         }
     }
 }
